@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "api/enquiry.js": { "memory": 256 },
+    "api/private-label-upload.js": { "memory": 256 }
+  }
+}
