@@ -1,0 +1,255 @@
+/* ===================== VAIDHYA FOODS — GLOBAL STYLES ===================== */
+/* Brand colors: ONLY two — #98be52 (green) and #fffefe (near-white).
+   Ink (#1a1a1a) and a muted grey are used purely for text legibility,
+   never as decorative color. */
+
+:root{
+  --vf-green: #98be52;
+  --vf-green-dark: #6f9438; /* darker shade of the SAME green, for hover/contrast only */
+  --vf-white: #fffefe;
+  --vf-ink: #1a1a1a;
+  --vf-ink-soft: rgba(26,26,26,0.62);
+  --radius: 18px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Archivo',sans-serif;
+  background:var(--vf-white);
+  color:var(--vf-ink);
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:64px; /* room for sticky mobile bar */
+}
+@media (min-width:900px){ body{ padding-bottom:0; } }
+
+.display{font-family:'Anton',sans-serif; letter-spacing:0.01em;}
+
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px;}
+section{padding:52px 0;}
+@media (min-width:900px){ section{padding:88px 0;} }
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-weight:700; text-transform:uppercase; letter-spacing:.04em; font-size:13px;
+  padding:14px 26px; border-radius:999px; border:2px solid transparent; cursor:pointer;
+  transition:transform .15s ease, background .15s ease, color .15s ease;
+}
+.btn:active{transform:scale(.97);}
+.btn-solid{background:var(--vf-green); color:var(--vf-ink);}
+.btn-solid:hover{background:var(--vf-green-dark); color:var(--vf-white);}
+.btn-outline{background:transparent; border-color:var(--vf-green); color:var(--vf-ink);}
+.btn-outline:hover{background:var(--vf-green); color:var(--vf-ink);}
+.btn-white{background:var(--vf-white); color:var(--vf-ink);}
+.btn-white:hover{background:var(--vf-green);}
+
+.eyebrow{
+  text-transform:uppercase; letter-spacing:.22em; font-size:11px; font-weight:800;
+  color:var(--vf-green-dark); margin-bottom:10px;
+}
+.h1{font-size:38px; line-height:1.02;}
+.h2{font-size:30px; line-height:1.05;}
+@media (min-width:700px){ .h1{font-size:58px;} .h2{font-size:42px;} }
+
+.card{background:var(--vf-white); border:1px solid rgba(26,26,26,0.08); border-radius:var(--radius); overflow:hidden;}
+.tag{display:inline-block; background:rgba(152,190,82,0.18); color:var(--vf-ink); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:5px 12px; border-radius:999px;}
+
+/* ---------- HEADER ---------- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:var(--vf-white); border-bottom:1px solid rgba(26,26,26,0.08);
+}
+.site-header .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+.logo img{height:34px; width:auto;}
+.nav-desktop{display:none; gap:26px; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.03em;}
+.nav-desktop a:hover{color:var(--vf-green-dark);}
+@media (min-width:980px){ .nav-desktop{display:flex;} .site-header .wrap{height:84px;} .logo img{height:42px;} }
+
+.lang-select{
+  border:1.5px solid var(--vf-green); background:var(--vf-white); color:var(--vf-ink);
+  font-weight:700; font-size:12px; padding:8px 10px; border-radius:999px; cursor:pointer;
+}
+.header-actions{display:flex; align-items:center; gap:10px;}
+.hamburger{display:flex; flex-direction:column; gap:4px; padding:8px; background:none; border:none; cursor:pointer;}
+.hamburger span{width:22px; height:2px; background:var(--vf-ink);}
+@media (min-width:980px){ .hamburger{display:none;} }
+
+.mobile-menu{position:fixed; inset:0; background:var(--vf-white); z-index:60; padding:20px; display:none; overflow-y:auto;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block; font-size:20px; font-weight:800; padding:14px 0; border-bottom:1px solid rgba(26,26,26,.08);}
+.mobile-menu-close{float:right; font-size:26px; background:none; border:none; cursor:pointer;}
+
+/* ---------- STICKY MOBILE ACTION BAR ---------- */
+.mobile-bar{
+  position:fixed; bottom:0; left:0; right:0; z-index:55;
+  display:grid; grid-template-columns:1fr 1fr; background:var(--vf-ink); color:var(--vf-white);
+}
+@media (min-width:900px){ .mobile-bar{display:none;} }
+.mobile-bar a{display:flex; align-items:center; justify-content:center; gap:8px; padding:14px 0; font-weight:700; font-size:14px;}
+.mobile-bar a:first-child{border-right:1px solid rgba(255,255,255,.15);}
+.mobile-bar a.wa{background:var(--vf-green); color:var(--vf-ink);}
+
+.fab-wa{
+  display:none; position:fixed; bottom:24px; right:24px; z-index:55;
+  height:56px; width:56px; border-radius:50%; background:var(--vf-green);
+  align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+@media (min-width:900px){ .fab-wa{display:flex;} }
+
+/* ---------- HERO ---------- */
+.hero{background:var(--vf-ink); color:var(--vf-white); position:relative; overflow:hidden;}
+.hero .eyebrow{color:var(--vf-green);}
+.hero-grid{display:grid; gap:34px; align-items:center;}
+@media (min-width:900px){ .hero-grid{grid-template-columns:1.1fr 1fr;} }
+.hero p.lead{color:rgba(255,255,255,.78); font-size:17px; max-width:440px; margin:16px 0 26px;}
+.hero-band{height:8px; background:var(--vf-green);}
+
+/* ---------- TRUST BAR ---------- */
+.trust-bar{background:var(--vf-white); border-bottom:1px solid rgba(26,26,26,.08); padding:22px 0;}
+.trust-bar .wrap{display:flex; flex-wrap:wrap; gap:22px; justify-content:space-between;}
+.trust-item{display:flex; align-items:center; gap:10px;}
+.trust-item .num{font-family:'Anton',sans-serif; font-size:26px; color:var(--vf-green-dark);}
+.trust-item p{font-size:12.5px; color:var(--vf-ink-soft); max-width:150px; margin:0;}
+
+/* ---------- PRODUCT GRID ---------- */
+.grid-3{display:grid; gap:20px; grid-template-columns:1fr;}
+@media (min-width:640px){ .grid-3{grid-template-columns:1fr 1fr;} }
+@media (min-width:980px){ .grid-3{grid-template-columns:repeat(3,1fr);} }
+.product-card{cursor:pointer; transition:transform .2s ease, box-shadow .2s ease;}
+.product-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px rgba(26,26,26,.1);}
+.product-card .thumb{aspect-ratio:4/3; overflow:hidden;}
+.product-card .thumb img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+.product-card:hover .thumb img{transform:scale(1.06);}
+.product-card .body{padding:20px;}
+.product-card h3{margin:0 0 6px; font-size:22px;}
+.product-card p{font-size:13.5px; color:var(--vf-ink-soft); margin:0 0 14px;}
+
+/* ---------- SECTION VARIANTS ---------- */
+.section-green{background:var(--vf-green); color:var(--vf-ink);}
+.section-ink{background:var(--vf-ink); color:var(--vf-white);}
+.section-ink .eyebrow{color:var(--vf-green);}
+
+/* ---------- FOOTER (kept intentionally compact) ---------- */
+.site-footer{background:var(--vf-ink); color:rgba(255,255,255,.7); font-size:13px;}
+.footer-top{display:grid; gap:22px; padding:28px 0 18px;}
+@media (min-width:760px){ .footer-top{grid-template-columns:1.2fr 1fr 1fr; align-items:start;} }
+.footer-top h4{color:var(--vf-white); font-size:12px; text-transform:uppercase; letter-spacing:.08em; margin:0 0 10px;}
+.footer-top a{display:block; margin-bottom:6px; color:rgba(255,255,255,.7);}
+.footer-top a:hover{color:var(--vf-green);}
+.footer-map{border-radius:12px; overflow:hidden; height:150px; border:1px solid rgba(255,255,255,.15);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1); padding:14px 0; text-align:center; font-size:11.5px; color:rgba(255,255,255,.4);}
+
+/* ---------- ENQUIRY MODAL ---------- */
+.modal-overlay{position:fixed; inset:0; background:rgba(26,26,26,.6); z-index:80; display:none;}
+.modal-overlay.open{display:block;}
+.modal-box{
+  position:fixed; z-index:81; left:50%; top:50%; transform:translate(-50%,-50%);
+  background:var(--vf-white); width:calc(100% - 32px); max-width:480px; max-height:88vh; overflow-y:auto;
+  border-radius:20px; padding:26px; display:none;
+}
+.modal-box.open{display:block;}
+.modal-box .close{position:absolute; top:14px; right:16px; background:none; border:none; font-size:20px; cursor:pointer; color:var(--vf-ink-soft);}
+.field{margin-bottom:14px;}
+.field label{display:block; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.04em; color:var(--vf-ink-soft); margin-bottom:6px;}
+.field input, .field select, .field textarea{
+  width:100%; border:1.5px solid rgba(26,26,26,.15); border-radius:10px; padding:11px 12px; font-size:14px; font-family:inherit;
+  background:var(--vf-white);
+}
+.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--vf-green);}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+
+/* utility */
+.center{text-align:center;}
+.mt{margin-top:20px;}
+.muted{color:var(--vf-ink-soft);}
+.divider{height:1px; background:rgba(26,26,26,.08); margin:40px 0;}
+
+/* ===========================================
+   FROM FARM TO FACTORY
+=========================================== */
+
+.farm-source {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+}
+
+.farm-source-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Remove any old gradient */
+.farm-source::after {
+    display: none;
+}
+
+.farm-source-content {
+    position: absolute;
+    top: 50%;
+    right: 7%;
+    transform: translateY(-50%);
+    width: 480px;
+}
+
+    .farm-source-content .eyebrow {
+        margin-bottom: 14px;
+    }
+
+    .farm-source-content h2 {
+        margin: 0 0 20px;
+        color: var(--vf-ink);
+        font-size: 56px;
+        line-height: 0.95;
+    }
+
+    .farm-source-content .lead {
+        color: var(--vf-ink-soft);
+        font-size: 17px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+    }
+
+/* Tablet */
+
+@media (max-width:991px) {
+
+    .farm-source-content {
+        width: 400px;
+        right: 40px;
+    }
+
+        .farm-source-content h2 {
+            font-size: 42px;
+        }
+}
+
+/* Mobile */
+
+@media (max-width:768px) {
+
+    .farm-source {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .farm-source-img {
+        width: 100%;
+    }
+
+    .farm-source-content {
+        position: static;
+        transform: none;
+        width: auto;
+        padding: 30px 20px;
+    }
+
+        .farm-source-content h2 {
+            font-size: 34px;
+        }
+}
